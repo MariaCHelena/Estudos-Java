@@ -1,4 +1,5 @@
 # Collection Framework API
+
 - Uma coleção (colection) é uma estrutura de dados que serve para agrupar muitos elementos em uma única unidade. Estes elementos precisam ser *Objetos*.
   Não aceita tipos primitivos, diferentemente de um Array, aceita **somente objetos**.
 - Uma Collection pode ter coleções homogêneas (de mesmo tipo) ou heterogêneas (de tipos diferentes), normalmente utilizamos coleções homogêneas de um tipo específico.
@@ -9,3 +10,8 @@
 
 - Todas as intrefaces e classes são encontradas dentro do pacote (package) *java.util*.
 - Embora a interface *Map* não seja filha direta da interface *Collection* ela também é considerada uma coleção devido a sua função.
+- A lista completa das anotações a respeito do Java Collection Framework API se encontra na pasta "documentos".
+
+## Índice:
+
+- Generics Type

@@ -4,5 +4,5 @@
 /**
  * 
  */
-module AulaUnB_OO {
+module CursoJava {
 }
