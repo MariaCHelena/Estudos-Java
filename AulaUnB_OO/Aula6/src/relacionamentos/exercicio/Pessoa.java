@@ -5,7 +5,6 @@ public class Pessoa {
 	private String dataCriacao;
 	private String endereco;
 	private String nacionalidade;
-	private String status;
 	// pessoa jurídica private String status;
 	
 	public void setNome(String nome) {
@@ -16,7 +15,7 @@ public class Pessoa {
 		return this.nome;
 	}
 	
-	public void setDataCriacao(String nome) {
+	public void setDataCriacao(String dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
 	
