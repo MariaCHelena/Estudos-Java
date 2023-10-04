@@ -1,4 +1,4 @@
-package relacionamentos.heranca;
+package relacionamentos.exercicio;
 
 public class PessoaFisica extends Pessoa {
 	private int idade;

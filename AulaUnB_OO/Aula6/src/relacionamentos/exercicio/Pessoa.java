@@ -1,4 +1,4 @@
-package relacionamentos.heranca;
+package relacionamentos.exercicio;
 
 public class Pessoa {
 	private String nome;
