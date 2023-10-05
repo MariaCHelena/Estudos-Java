@@ -26,7 +26,7 @@ public class Rectangle {
 	
 	public String toString() {
 		return "AREA = " + String.format("%.2f", area()) 
-				+ "\n\rPERIMETER = " + String.format("%.2f", perimeter()) 
-				+ "\n\rDIAGONAL = " + String.format("%.2f", diagonal());
+				+ "\nPERIMETER = " + String.format("%.2f", perimeter()) 
+				+ "\nDIAGONAL = " + String.format("%.2f", diagonal());
 	}
 }
