@@ -1,11 +1,10 @@
 package relacionamentos.exercicio;
 
 public class Pessoa {
-	private String nome;
-	private String dataCriacao;
-	private String endereco;
-	private String nacionalidade;
-	// pessoa jurídica private String status;
+	protected String nome;
+	protected String dataRegistro;
+	protected String endereco;
+	protected String nacionalidade;
 	
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -15,12 +14,12 @@ public class Pessoa {
 		return this.nome;
 	}
 	
-	public void setDataCriacao(String dataCriacao) {
-		this.dataCriacao = dataCriacao;
+	public void setDataRegistro(String dataRegistro) {
+		this.dataRegistro = dataRegistro;
 	}
 	
-	public String getDataCriacao() {
-		return this.dataCriacao;
+	public String getDataRegistro() {
+		return this.dataRegistro;
 	}
 	
 	public void setEndereco(String endereco) {
@@ -43,13 +42,13 @@ public class Pessoa {
 		return "É possível declarar que a pessoa de nome " + this.nome +
 				" é registrada no endereço " + this.endereco +
 				", de nacionalidade " + this.nacionalidade +
-				", foi registrada no dia " + this.dataCriacao;
+				", foi registrada no dia " + this.dataRegistro;
 	}
 	
 	public String toString() {
 		return "A pessoa tem nome: " + this.nome +
 				", endereço: " + this.endereco +
-				", data de registro: " + this.dataCriacao +
+				", data de registro: " + this.dataRegistro +
 				" e nacionalidade: " + this.nacionalidade;
 	}
 }
