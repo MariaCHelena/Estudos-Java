@@ -74,35 +74,36 @@ public class PessoaFisica extends Pessoa {
 				", possui o estado civil: " + this.estadoCivil;
 	}
 	
-	public void registrarPessoa() {
-		Scanner sc = new Scanner(System.in);
+	private void registrarPessoa() {
+		Scanner scReg = new Scanner(System.in);
+		
 		System.out.println("Para prosseguir com o registro de pessoa, siga os seguintes passos: ");
 		
 		System.out.println("Digite o nome da pessoa:");
-		String nome = sc.next();
+		String nome = scReg.next();
 		
 		System.out.println("Digite o cpf da pessoa (caso ela não possua CPF, digite NAO):");
-		String cpf = sc.next();
+		String cpf = scReg.next();
 		if (cpf.equals("NAO")) {
 			cpf = gerarCPF();
 		}
 		
 		System.out.println("Digite a idade da pessoa:");
-		int idade = sc.nextInt();
+		int idade = scReg.nextInt();
 		
 		System.out.println("Digite o endereço da pessoa:");
-		String endereco = sc.next();
+		String endereco = scReg.next();
 		
 		System.out.println("Digite a nacionalidade da pessoa:");
-		String nacionalidade = sc.next();
+		String nacionalidade = scReg.next();
 		
 		System.out.println("Digite a data de nascimento da pessoa (no formato DD/MM/AAAA):");
-		String dataNasc = sc.next();
+		String dataNasc = scReg.next();
 		
 		System.out.println("Escolha o estado civil da pessoa:");
 		System.out.println("1 - SOLTEIRO, 2 - CASADO, 3 - DIVORCIADO, 4 - VIUVO");
 		EstadoCivil resEstado = EstadoCivil.SOLTEIRO;
-		int resEstCivil = sc.nextInt();
+		int resEstCivil = scReg.nextInt();
 		switch (resEstCivil) {
 			case 1:
 				break;
@@ -119,7 +120,7 @@ public class PessoaFisica extends Pessoa {
 		
 		System.out.println("Escolha o status da pessoa:");
 		System.out.println("1 - VIVO, 2 - MORTO");
-		int resStatus = sc.nextInt();
+		int resStatus = scReg.nextInt();
 		StatusPessoaFisica defStatus = StatusPessoaFisica.VIVO;
 		if (resStatus > 1) {
 			defStatus = StatusPessoaFisica.MORTO;
@@ -127,7 +128,7 @@ public class PessoaFisica extends Pessoa {
 		Calendar dataAgora = Calendar.getInstance();
 		String dataAgoraFormat = Integer.toString(dataAgora.get(dataAgora.DAY_OF_MONTH)) + "/" + Integer.toString(dataAgora.get(dataAgora.MONTH)) + "/" + Integer.toString(dataAgora.get(dataAgora.YEAR));
 		
-		sc.close();
+		scReg.close();
 		
 		setNome(nome);
 		setCpf(cpf);
@@ -176,6 +177,143 @@ public class PessoaFisica extends Pessoa {
 		return stringRetorno;
 	}
 	
+	
+	//crud
+	public void operacaoUsuario() {
+		switch (menuEscolha()) {
+		case 1:
+			registrarPessoa();
+			break;
+		case 2:
+			toString();
+			break;
+		case 3:
+			atualizarCampo();
+			break;
+		case 4:
+			excluirPessoa();
+			break;
+		case 5:
+			return;
+		}
+		
+		operacaoUsuario();
+	}
+	
+	private void excluirPessoa() {
+		// Eu não tenho certeza de como fazer isso, então por hora irei só colocar todos os atributos como null
+		Scanner scExc = new Scanner(System.in);
+		System.out.println("Você tem certeza de que deseja excluir o cadastro de " + this.nome + "?");
+		System.out.println("1 - SIM; 2 - NAO.");
+		int res = scExc.nextInt();
+		if (res == 1) {
+			setNome(null);
+			setCpf(null);
+			setIdade(0);
+			setEndereco(null);
+			setNacionalidade(null);
+			setDataRegistro(null);
+			setDataNascimento(null);
+			setEstadoCivil(null);
+			setStatus(null);
+		}
+		return;
+	}
+
+	private void atualizarCampo() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Escolha o campo que você deseja atualizar: ");
+		System.out.println("1 - nome; 2 - cpf; 3 - idade; 4 - data de nascimento; \n5 - endereço; 6 - nacionalidade; 7 - estado civil; 8 - status; 9 - sair.");
+		int res = sc.nextInt();
+		
+		switch (res) {
+			case 1:
+				System.out.println("MUDAR O NOME");
+				System.out.print("Nome antigo: " + this.nome + ". Novo nome: ");
+				String nome = sc.next();
+				setNome(nome);
+				break;
+			case 2:
+				System.out.println("MUDAR O CPF");
+				System.out.print("CPF antigo: " + this.cpf + ". Novo cpf: ");
+				String cpf = sc.next();
+				setCpf(cpf);
+				break;
+			case 3:
+				System.out.println("MUDAR A IDADE");
+				System.out.print("Idade antiga: " + this.idade + ". Nova idade: ");
+				int idade = sc.nextInt();
+				setIdade(idade);
+				break;
+			case 4:
+				System.out.println("MUDAR A DATA DE NASCIMENTO");
+				System.out.print("Data de nascimento antiga: " + this.dataNascimento + ". Nova data de nascimento: ");
+				String dataNascimento = sc.next();
+				setDataNascimento(dataNascimento);
+				break;
+			case 5:
+				System.out.println("MUDAR O ENDEREÇO");
+				System.out.print("Endereço antigo: " + this.endereco + ". Novo endereço: ");
+				String endereco = sc.next();
+				setEndereco(endereco);
+				break;
+			case 6:
+				System.out.println("MUDAR A NACIONALIDADE");
+				System.out.print("Nacionalidade antiga: " + this.nacionalidade + ". Nova nacionalidade: ");
+				String nacionalidade = sc.next();
+				setNacionalidade(nacionalidade);
+				break;
+			case 7:
+				System.out.println("MUDAR O ESTADO CIVIL");
+				System.out.print("Antigo estado civil: " + retornaEstadoCivil() + ". Escolha o novo estado civil: ");
+				System.out.println("1 - Solteiro. 2 - Casado; 3 - Divorciado; 4 - Viúvo.");
+				EstadoCivil estadoCivil = null;
+				int resEstado = sc.nextInt();
+				switch (resEstado) {
+					case 1:
+						//solteiro
+						estadoCivil = estadoCivil.SOLTEIRO;
+						break;
+					case 2:
+						//casado
+						estadoCivil = estadoCivil.CASADO;
+						break;
+					case 3:
+						//divorciado
+						estadoCivil = estadoCivil.DIVORCIADO;
+						break;
+					case 4:
+						//viuvo
+						estadoCivil = estadoCivil.VIUVO;
+						break;
+					default:
+						break;
+				}
+				setEstadoCivil(estadoCivil);
+				sc.close();
+				break;
+			case 8:
+				System.out.println("MUDAR O STATUS");
+				System.out.print("Estatus atual: " + retornaStatus() + ". Escolha o novo Status:");
+				System.out.println("1 - Vivo; 2 - Morto.");
+				int resStatus = sc.nextInt();
+				StatusPessoaFisica status = null;
+				switch (res) {
+					case 1:
+						status = status.VIVO;
+						break;
+					case 2:
+						status = status.MORTO;
+						break;
+				}
+				setStatus(status);
+				sc.close();
+				break;
+			case 9:
+				break;
+		}
+	}
+
 	public String gerarCPF() {
 		Random gerador = new Random();
 		return "CPFGERADOPELOSISTEMA" + gerador.nextInt(1001);

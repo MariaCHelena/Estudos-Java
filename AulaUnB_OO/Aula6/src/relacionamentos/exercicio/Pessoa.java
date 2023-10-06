@@ -1,5 +1,7 @@
 package relacionamentos.exercicio;
 
+import java.util.Scanner;
+
 public class Pessoa {
 	protected String nome;
 	protected String dataRegistro;
@@ -36,6 +38,36 @@ public class Pessoa {
 	
 	public String getNacionalidade() {
 		return this.nacionalidade;
+	}
+	
+	public int menuEscolha() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Qual tipo de operação você deseja realizar?");
+		System.out.println("1 - Cadastrar nova pessoa; \n2 - Ler informações da pessoa cadastrada; \n3 - Editar informações da pessoa cadastrada; \n4 - Excluir pessoa cadastrada; \n5 - Sair.");
+		int res = sc.nextInt();
+		sc.close();
+		return res;
+	}
+	
+	public void operacaoUsuario() {
+		switch (menuEscolha()) {
+		case 1:
+			
+			break;
+		case 2:
+			
+			break;
+		case 3:
+			
+			break;
+		case 4:
+			
+			break;
+		case 5:
+			return;
+		}
+		
+		operacaoUsuario();
 	}
 	
 	public String emitirAtestadoRegistro() {
