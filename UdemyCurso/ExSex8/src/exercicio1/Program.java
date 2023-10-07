@@ -1,9 +1,9 @@
-package rectangle;
+package exercicio1;
 
 import java.util.Locale;
 import java.util.Scanner;
 
-import rectangle.entities.Rectangle;
+import exercicio1.entities.Rectangle;
 
 public class Program {
 

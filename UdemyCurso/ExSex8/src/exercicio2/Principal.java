@@ -6,7 +6,7 @@ import java.util.Scanner;
 import exercicio2.entities.Employee;
 
 public class Principal {
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		

@@ -1,4 +1,4 @@
-package rectangle.entities;
+package exercicio1.entities;
 
 public class Rectangle {
 	private double width;
