@@ -10,6 +10,14 @@ public class Product {
 		this.price = price;
 		this.quantity = quantity;
 	}
+	
+	public Product(String name, double price) {
+		this.name = name;
+		this.price = price;
+		
+		//é opicional, pois o produto, se não receber um valor inicial, iniciará por padrão com quantidade igual a 0
+		quantity = 0;
+	}
 
 	public double totalValueInStock() {
 		return price * quantity;
